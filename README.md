@@ -4,9 +4,10 @@
 ** 目前工作时间较紧，后期得空，整理项目推送 **
 
 # 痛点：
-* 在 Unity 中想使用 SVGA 比较不方便。目前官方只支持纯纹理格式SVGA，常见的 Shapes 帧不支持.（官方项目：https://github.com/svga/SVGAPlayer-Unity）
+* 在 Unity 中想使用 SVGA 比较不方便。目前官方只支持纯纹理格式SVGA，常见的矢量帧SVGA支持不够友好.（官方项目：https://github.com/svga/SVGAPlayer-Unity）
 
 
+---
 
 # SVGA Component for Unity
 
