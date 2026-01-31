@@ -1,17 +1,5 @@
 # Unity SVGAPlayer
-
-# 待发布
-** 目前工作时间较紧，后期得空，整理项目推送 **
-
-# 痛点：
-* 在 Unity 中想使用 SVGA 比较不方便。目前官方只支持纯纹理格式SVGA，常见的矢量帧SVGA支持不够友好.（官方项目：https://github.com/svga/SVGAPlayer-Unity）
-
-
----
-
-# SVGA Component for Unity
-
-## 组件说明 (Component Description)
+> 痛点：在 Unity 中想使用 SVGA 比较不方便。目前官方只支持纯纹理格式SVGA，常见的矢量帧SVGA支持不够友好.（官方项目：https://github.com/svga/SVGAPlayer-Unity）  
 
 `SVGAComponent` 是一个用于在 Unity 中播放 SVGA 动画的高性能组件。它支持 SVGA 格式的矢量动画播放，包括音频支持、帧回调、播放控制等功能。
 
@@ -21,6 +9,22 @@
 - **速率控制**：支持动态调整播放速率 (`PlaybackRate`)。
 - **音频支持**：自动处理和播放 SVGA 文件中嵌入的音频。
 - **高性能**：基于 Unity `RectTransform` 和原生 UI 系统渲染，利用 `LibTessDotNet` 处理矢量图形。
+- **内存管理**：高效管理内存，避免内存泄漏。
+- **占位替换**：支持在运行时替换 SVGA 文件中的占位符，实现动态内容展示。
+
+### 事件回调
+- **OnCompleted**：动画播放完成时触发。
+- **AddClickCallback**：添加 Bone 点击回调，点击时触发。
+
+### 示例
+#### 1.纯图 SVGA
+![纯图 SVGA](./Docus/uTools_GIF_1769841097245.gif)
+#### 2.矢量帧 SVGA
+![矢量帧 SVGA](./Docus/uTools_GIF_1769842341569.gif)
+#### 3.图 + 矢量帧 SVGA
+![图 + 矢量帧 SVGA](./Docus/uTools_GIF_1769842146799.gif)
+
+
 
 ## 快速上手 (Quick Start)
 
@@ -31,14 +35,27 @@
 在使用 `SVGAPlayer` 之前，你需要实现 `ISVGAPlayerProvider` 接口，用于提供日志输出和文件写入路径（用于解压音频等）。
 
 ```csharp
-using JoJoRead.Game.SVGA;
+using Bo.SVGA;
 using UnityEngine;
 
 public class MySVGAProvider : ISVGAPlayerProvider
 {
+
+    private MonoBehaviour _monoBehaviour;
+
+    public MySVGAProvider(MonoBehaviour monoBehaviour)
+    {
+        _monoBehaviour = monoBehaviour;
+    }
+
     public string GetWritablePath()
     {
         return Application.persistentDataPath;
+    }
+
+    public MonoBehaviour GetMonoBehaviour()
+    {
+        return _monoBehaviour;
     }
 
     public void Log(string message) => Debug.Log(message);
@@ -51,7 +68,7 @@ public class MySVGAProvider : ISVGAPlayerProvider
 加载 SVGA 数据（二进制流）并初始化播放器。
 
 ```csharp
-using JoJoRead.Game.SVGA;
+using Bo.SVGA;
 using UnityEngine;
 using System.IO;
 

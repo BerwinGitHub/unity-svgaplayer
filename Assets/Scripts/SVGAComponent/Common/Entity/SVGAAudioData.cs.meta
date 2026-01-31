@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/GameInit/Framework/SVGAComponent/Common/Entity/SVGAAudioData.cs.meta
+guid: 46210fd2ed47240da89ffd0d1611e6ff
+========
+guid: afe0e71662ef7b543bbb314e4e75beda
+>>>>>>>> master:Assets/Game/App/RemoteAPIs/APIPagani/WriteCollection/UserLessons/WriteCollectionUserLessonsC2S.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
