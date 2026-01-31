@@ -1,5 +1,5 @@
 # Unity SVGAPlayer
-> 痛点：在 Unity 中想使用 SVGA 比较不方便。目前官方只支持纯纹理格式SVGA，常见的矢量帧SVGA支持不够友好.（官方项目：https://github.com/svga/SVGAPlayer-Unity）  
+> 痛点：在 Unity 中想使用 SVGA 比较不方便。目前官方只支持纯纹理格式SVGA（SVGAPlayer-Unity），常见的矢量帧SVGA支持不够友好.（官方项目：https://github.com/svga/SVGAPlayer-Unity）  
 
 `SVGAComponent` 是一个用于在 Unity 中播放 SVGA 动画的高性能组件。它支持 SVGA 格式的矢量动画播放，包括音频支持、帧回调、播放控制等功能。
 
@@ -129,3 +129,4 @@ public class SVGADemo : MonoBehaviour
 
 ---
 更多详情请参考 `CHANGELOG.md` 文件。
+参考项目：SVGAPlayer-Unity
